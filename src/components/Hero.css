@@ -1,0 +1,249 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-dark-gray);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(212, 175, 55, 0.01) 2px,
+      rgba(212, 175, 55, 0.01) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(212, 175, 55, 0.01) 2px,
+      rgba(212, 175, 55, 0.01) 4px
+    );
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 4rem;
+  padding: 8rem 0 4rem;
+  position: relative;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-family: var(--font-primary);
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.hero-title-main {
+  display: block;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--color-white);
+  letter-spacing: 0.15em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title-accent {
+  display: block;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: var(--color-gold);
+  letter-spacing: 0.3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 0.5rem;
+}
+
+.hero-ornament {
+  display: flex;
+  justify-content: flex-start;
+  margin: 2rem 0;
+}
+
+.hero-subtitle {
+  font-family: var(--font-primary);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 400;
+  color: var(--color-champagne);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+  max-width: 500px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hero-btn {
+  font-size: 0.9rem;
+  padding: 15px 35px;
+  letter-spacing: 0.15em;
+  background: rgba(212, 175, 55, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.hero-decorative {
+  position: relative;
+  width: 300px;
+  height: 400px;
+}
+
+.hero-pattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.03) 31%, rgba(212, 175, 55, 0.03) 32%, transparent 33%),
+    linear-gradient(-45deg, transparent 30%, rgba(212, 175, 55, 0.02) 31%, rgba(212, 175, 55, 0.02) 32%, transparent 33%);
+  background-size: 20px 20px;
+}
+
+.hero-shine {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 2px;
+  height: 60%;
+  background: var(--color-gold);
+  opacity: 0.6;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  animation: bounce 2s infinite;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(to bottom, var(--color-gold), transparent);
+}
+
+.scroll-text {
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .hero-decorative {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 6rem 0 4rem;
+  }
+  
+  .hero-title-main {
+    font-size: 2.5rem;
+    letter-spacing: 0.1em;
+  }
+  
+  .hero-title-accent {
+    font-size: 1.8rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-decorative {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 5rem 0 3rem;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
