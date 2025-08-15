@@ -1,0 +1,5 @@
+/.well-known/
+/dist/
+application/javascript js
+text/css css
+text/html html

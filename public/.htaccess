@@ -1,0 +1,9 @@
+AddType application/javascript .js
+AddType text/css .css
+AddType text/html .html
+
+# Handle client side routing
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(?!.*\.).*$ /index.html [L]
+</IfModule>
