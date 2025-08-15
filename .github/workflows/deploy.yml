@@ -33,6 +33,14 @@ jobs:
       - name: Build
         run: npm run build
         
+      - name: Create _headers file
+        run: |
+          echo "/*" > dist/_headers
+          echo "  Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:;" >> dist/_headers
+          echo "  X-Content-Type-Options: nosniff" >> dist/_headers
+          echo "  X-Frame-Options: DENY" >> dist/_headers
+          echo "  X-XSS-Protection: 1; mode=block" >> dist/_headers
+          
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
