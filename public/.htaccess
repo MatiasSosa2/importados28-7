@@ -1,4 +1,5 @@
 AddType application/javascript .js
+AddType application/javascript .jsx
 AddType text/css .css
 AddType text/html .html
 
