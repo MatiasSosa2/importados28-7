@@ -147,12 +147,6 @@ const ProductCategories = () => {
           </div>
         </div>
       </div>
-      
-      <div className="products-background">
-        <div className="floating-element floating-1"></div>
-        <div className="floating-element floating-2"></div>
-        <div className="floating-element floating-3"></div>
-      </div>
     </section>
   );
 };
