@@ -25,10 +25,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
+          
+      - name: Clean npm cache
+        run: npm cache clean --force
           
       - name: Install dependencies
-        run: npm install
+        run: |
+          rm -rf package-lock.json node_modules
+          npm install --no-optional --legacy-peer-deps
+          npm install
         
       - name: Build
         run: npm run build
